@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Boxes {
     public static void main(String[] args) {
 
@@ -17,6 +19,33 @@ public class Boxes {
 
         //Pregunta al usuario lo siguiente: Hola, soy tu asistente de la organización ¿Qué deseas buscar? (la respuesta deberá aparecer en la terminal en la misma línea)
 
-        //Crea un programa que te devuelva lo siguiente: <cosas> están en la caja <índice> en el caso de no existir que devuelva: <cosas> no las empacaste, oops! 
+        //Crea un programa que te devuelva lo siguiente: <cosas> están en la caja <índice> en el caso de no existir que devuelva: <cosas> no las empacaste, oops!
+        Scanner scanner = new Scanner(System.in);
+        boolean found = false;
+        String userAnswer;
+
+        String[] boxes = {
+                "Libros",
+                "Utensilios de cocina",
+                "Artículos de baño",
+                "Bolsos",
+                "Zapatos",
+                "Cosas de verano",
+                "Cosas de invierno"
+        };
+
+        System.out.println("Hola, soy tu asistente de la organización ¿Qué deseas buscar?");
+        userAnswer = scanner.nextLine();
+
+        for(int index = 0; index < boxes.length; index++){
+            if (boxes[index].equalsIgnoreCase(userAnswer)){
+                System.out.println(userAnswer + " están en la caja " + index + ".");
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println(userAnswer + " no las empacaste, oops!");
+        }
     }
 }
